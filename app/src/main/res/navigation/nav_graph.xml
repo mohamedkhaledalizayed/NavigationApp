@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/splash_fragment"
+>
+
+    <fragment
+            android:id="@+id/splash_fragment"
+            android:name="com.example.navigationapp.SplashFragment"
+            android:label="splash_fragment"
+            tools:layout="@layout/fragment_splash">
+
+        <action
+                android:id="@+id/action_splash_fragment_to_movies_fragment"
+                app:popUpToInclusive="true"
+                app:popUpTo="@id/nav_graph"
+                app:destination="@id/movies_fragment"/>
+
+
+    </fragment>
+
+
+    <fragment
+            android:id="@+id/movies_fragment"
+            android:name="com.example.navigationapp.MoviesFragment"
+            android:label="movies_fragment"
+            tools:layout="@layout/fragment_movies">
+
+        <action
+                android:id="@+id/action_movies_fragment_to_movie_datails"
+                app:popUpToInclusive="true"
+                app:destination="@id/movie_details"/>
+
+        <action
+                android:id="@+id/action_movies_fragment_to_fragment_shared_element_transition"
+                app:popUpToInclusive="true"
+                app:destination="@id/fragment_shared_element_transition"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_shared_element_transition"
+            android:name="com.example.navigationapp.SharedElementTransitionFragment"
+            android:label="fragment_shared_element_transition"
+            tools:layout="@layout/fragment_shared_element_transition">
+
+        <action
+                android:id="@+id/action_movies_fragment_to_fragment_shared_element_details"
+                app:popUpToInclusive="true"
+                app:destination="@id/fragment_shared_element_details"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/fragment_shared_element_details"
+            android:name="com.example.navigationapp.SharedElementDetailsFragment"
+            android:label="reviews_fragment"
+            tools:layout="@layout/fragment_shared_element_details">
+    </fragment>
+
+    <fragment
+            android:id="@+id/movie_details"
+            android:name="com.example.navigationapp.MovieDetailsFragment"
+            android:label="movie_details"
+            tools:layout="@layout/fragment_movie_details">
+
+        <argument
+                android:name="name_arg"
+                android:defaultValue="Default Movie"
+                app:argType="string" />
+
+        <action
+                android:id="@+id/action_movie_details_to_author_fragment"
+                app:popUpToInclusive="true"
+                app:destination="@id/author_fragment"/>
+
+        <action
+                android:id="@+id/action_movie_details_to_reviews_fragment"
+                app:destination="@id/reviews_fragment"/>
+
+        <action
+                android:id="@+id/action_movie_details_to_trailer_fragment"
+                app:destination="@id/trailer_fragment"/>
+
+    </fragment>
+
+    <fragment
+            android:id="@+id/author_fragment"
+            android:name="com.example.navigationapp.AboutAuthorFragment"
+            android:label="author_fragment"
+            tools:layout="@layout/fragment_movie_details">
+    </fragment>
+
+    <fragment
+            android:id="@+id/reviews_fragment"
+            android:name="com.example.navigationapp.MovieReviewsFragment"
+            android:label="reviews_fragment"
+            tools:layout="@layout/fragment_movie_details">
+    </fragment>
+
+    <fragment
+            android:id="@+id/trailer_fragment"
+            android:name="com.example.navigationapp.MovieTrailerFragment"
+            android:label="trailer_fragment"
+            tools:layout="@layout/fragment_movie_details">
+    </fragment>
+
+    <activity
+            android:id="@+id/mainActivity"
+            android:name="com.example.navigationapp.MainActivity"
+            android:label="activity_main"
+            tools:layout="@layout/activity_main"/>
+
+    <argument
+            android:name="prev_frag_name"
+            android:defaultValue="testing"
+            app:argType="string" />
+
+</navigation>
