@@ -12,7 +12,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_movies.*
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.transition.TransitionInflater
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_shared_element_details.*
 
 
 class MoviesFragment : Fragment() {
@@ -25,6 +27,11 @@ class MoviesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_movies, container, false)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+        setHasOptionsMenu(true)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,6 +40,8 @@ class MoviesFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar!!.show()
 
         (activity as AppCompatActivity).supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp)
+
+        Glide.with(this).load(R.drawable.get_started).into(image_View)
 
         movie_1.setOnClickListener {
             val action = MoviesFragmentDirections.actionMoviesFragmentToMovieDatails()

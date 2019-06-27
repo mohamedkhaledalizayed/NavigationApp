@@ -22,6 +22,12 @@
 
 
     <fragment
+            android:id="@+id/get_started_fragment"
+            android:name="com.example.navigationapp.GetStartedFragment"
+            android:label="get_started_fragment"
+            tools:layout="@layout/fragment_get_started"/>
+
+    <fragment
             android:id="@+id/movies_fragment"
             android:name="com.example.navigationapp.MoviesFragment"
             android:label="movies_fragment"
@@ -104,6 +110,27 @@
             android:name="com.example.navigationapp.MovieTrailerFragment"
             android:label="trailer_fragment"
             tools:layout="@layout/fragment_movie_details">
+    </fragment>
+
+    <fragment
+            android:id="@+id/doller_fragment"
+            android:name="com.example.navigationapp.DollerFragment"
+            android:label="doller_fragment"
+            tools:layout="@layout/fragment_doller">
+    </fragment>
+
+    <fragment
+            android:id="@+id/android_fragment"
+            android:name="com.example.navigationapp.AndroidFragment"
+            android:label="fragment_android"
+            tools:layout="@layout/fragment_android">
+    </fragment>
+
+    <fragment
+            android:id="@+id/save_fragment"
+            android:name="com.example.navigationapp.SaveFragment"
+            android:label="save_fragment"
+            tools:layout="@layout/fragment_save">
     </fragment>
 
     <activity

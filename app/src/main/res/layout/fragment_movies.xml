@@ -5,6 +5,15 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"
+            android:transitionName="background"
+            android:id="@+id/image_View"
+    />
+
+
     <Button android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Movie 1"
